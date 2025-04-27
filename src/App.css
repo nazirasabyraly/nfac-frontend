@@ -1,0 +1,64 @@
+body {
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.App {
+  width: 100%;
+  max-width: 600px;
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  text-align: center;
+}
+
+form {
+  margin-bottom: 30px;
+}
+
+form input, form textarea {
+  width: 100%;
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
