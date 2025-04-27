@@ -18,7 +18,7 @@ function CreateCapsuleForm({ onCapsuleCreated }) {
         };
 
         try {
-            const response = await fetch('http://localhost:8080/capsules', {
+            const response = await fetch('https://nfac-backend.onrender.com/create', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
