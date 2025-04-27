@@ -6,9 +6,11 @@ import CapsulesList from './components/CapsulesList';
 function App() {
     const [capsules, setCapsules] = useState([]);
 
+    const API_URL = 'https://nfac-backend.onrender.com';
+
     const fetchCapsules = async () => {
         try {
-            const response = await fetch('http://localhost:8080/capsules');
+            const response = await fetch(`${API_URL}/capsules`);
             if (response.ok) {
                 const data = await response.json();
                 setCapsules(data);
@@ -19,6 +21,7 @@ function App() {
             console.error('Error fetching capsules:', error);
         }
     };
+
 
     useEffect(() => {
         fetchCapsules();
