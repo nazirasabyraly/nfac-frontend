@@ -1,39 +1,45 @@
 import React from 'react';
 
-function CapsulesList({ capsules, onCapsuleDeleted }) {
-    const handleDelete = async (id) => {
-        try {
-            const response = await fetch(`https://nfac-backend.onrender.com/capsules/${id}`, {
-                method: 'DELETE',
-            });
-            if (response.ok) {
-                onCapsuleDeleted(); // обновляем список после удаления
-            } else {
-                console.error('Failed to delete capsule');
-                alert('Failed to delete capsule');
-            }
-        } catch (error) {
-            console.error('Error deleting capsule:', error);
-            alert('Error deleting capsule');
-        }
-    };
-
+function CapsulesList({ capsules, onDelete }) {
     return (
-        <div>
-            {capsules.length === 0 ? (
-                <p>No capsules found.</p>
-            ) : (
-                <ul>
-                    {capsules.map((capsule) => (
-                        <li key={capsule.id}>
-                            <strong>{capsule.subject}</strong> - {capsule.email}
-                            <button onClick={() => handleDelete(capsule.id)} style={{ marginLeft: '10px' }}>
+        <div style={{ marginTop: '20px' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                <thead>
+                <tr>
+                    <th style={{ borderBottom: '1px solid #ccc', padding: '10px' }}>Subject</th>
+                    <th style={{ borderBottom: '1px solid #ccc', padding: '10px' }}>Email</th>
+                    <th style={{ borderBottom: '1px solid #ccc', padding: '10px' }}>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {capsules.map(capsule => (
+                    <tr key={capsule.id}>
+                        <td style={{ padding: '10px', textAlign: 'center', fontWeight: 'bold' }}>
+                            {capsule.subject}
+                        </td>
+                        <td style={{ padding: '10px', textAlign: 'center' }}>
+                            {capsule.email}
+                        </td>
+                        <td style={{ padding: '10px', textAlign: 'center' }}>
+                            <button
+                                onClick={() => onDelete(capsule.id)}
+                                style={{
+                                    backgroundColor: '#28a745',
+                                    color: 'white',
+                                    border: 'none',
+                                    padding: '8px 16px',
+                                    borderRadius: '6px',
+                                    cursor: 'pointer',
+                                    fontWeight: 'bold'
+                                }}
+                            >
                                 Delete
                             </button>
-                        </li>
-                    ))}
-                </ul>
-            )}
+                        </td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
         </div>
     );
 }

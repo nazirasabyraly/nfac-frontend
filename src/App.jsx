@@ -6,11 +6,9 @@ import CapsulesList from './components/CapsulesList';
 function App() {
     const [capsules, setCapsules] = useState([]);
 
-    const API_URL = 'https://nfac-backend.onrender.com';
-
     const fetchCapsules = async () => {
         try {
-            const response = await fetch(`${API_URL}/capsules`);
+            const response = await fetch(`https://nfac-backend.onrender.com/capsules`);
             if (response.ok) {
                 const data = await response.json();
                 setCapsules(data);
@@ -29,6 +27,22 @@ function App() {
 
     const handleNewCapsule = () => {
         fetchCapsules();
+    };
+
+    const handleDeleteCapsule = async (id) => {
+        try {
+            const response = await fetch(`https://nfac-backend.onrender.com/capsules/${id}`, {
+                method: 'DELETE',
+            });
+            if (response.ok) {
+                // Обновляем список капсул после успешного удаления
+                fetchCapsules();
+            } else {
+                console.error('Failed to delete capsule');
+            }
+        } catch (error) {
+            console.error('Error deleting capsule:', error);
+        }
     };
 
     return (
