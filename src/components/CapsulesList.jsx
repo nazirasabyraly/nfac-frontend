@@ -8,6 +8,7 @@ function CapsulesList({ capsules, onDelete }) {
                 <tr>
                     <th style={{ borderBottom: '1px solid #ccc', padding: '10px' }}>Subject</th>
                     <th style={{ borderBottom: '1px solid #ccc', padding: '10px' }}>Email</th>
+                    <th style={{ borderBottom: '1px solid #ccc', padding: '10px' }}>Status</th>
                     <th style={{ borderBottom: '1px solid #ccc', padding: '10px' }}>Action</th>
                 </tr>
                 </thead>
@@ -20,6 +21,9 @@ function CapsulesList({ capsules, onDelete }) {
                         <td style={{ padding: '10px', textAlign: 'center' }}>
                             {capsule.email}
                         </td>
+                        <td style={{ padding: '10px', textAlign: 'center' }}>
+                            {capsule.sent ? 'Sent' : 'Pending'}
+                        </td> {/* Статус: Sent или Pending */}
                         <td style={{ padding: '10px', textAlign: 'center' }}>
                             <button
                                 onClick={() => onDelete(capsule.id)}
