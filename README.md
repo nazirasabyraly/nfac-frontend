@@ -1,4 +1,6 @@
-Это фронтенд часть проекта Time Capsule - сайт, позволяющий создавать капсулу времени и отправлять письма в будущее.
+Это фронтенд часть проекта Time Capsule - веб-приложение, позволяющее пользователю отправлять письма себе в будущее на электронную почту. Пользователь указывает email, тему письма, содержание письма (текст сообщения) и дату отправки. Капсула времени хранится до момента отправки.
+
+Backend repository: https://github.com/nazirasabyraly/nfac_backend
 
 Live Demo:
 Frontend: https://nfac-frontend.vercel.app/
@@ -28,11 +30,24 @@ src/
 Команды и запуск фронтенда:
     npm install
     npm run dev
+Работа сайта:
 
-Backend repository: https://github.com/nazirasabyraly/nfac_backend
+Пользователь создаёт капсулу времени через веб-интерфейс, заполняя поля.
+Информация капсулы сохраняется в базе данных Supabase.
+Бэкенд каждые 60 секунд проверяет капсулы:
+Если наступило дата и время отправки, письмо автоматически отправляется через SMTP.
+Статус капсулы обновляется как "отправлено" (Sent)
+Локальный запуск:
+
+Клонируйте репозитории фронтенда и бэкенда.
+Убедитесь, что установлен Go, Node.js и npm.
+Для бэкенда команды: cd nfac_backend go run main.go
+Для фронтенда команды: cd nfac_frontend npm install npm run dev
+Откройте http://localhost:5173/ для доступа к сайту.
 
 Скриншот:
 ![image](https://github.com/user-attachments/assets/80cdfcf6-d1bd-4f54-8c46-492b3bc88490)
+![image](https://github.com/user-attachments/assets/fc387d61-f492-4a67-b342-103e84fb5a1d)
 
 
 
