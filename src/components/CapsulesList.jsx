@@ -1,30 +1,39 @@
-function CapsulesList( {capsules} ) {
-    if (!capsules || capsules.length === 0) {
-        return <p>No capsules found.</p>;
-    }
+import React from 'react';
+
+function CapsulesList({ capsules, onCapsuleDeleted }) {
+    const handleDelete = async (id) => {
+        try {
+            const response = await fetch(`https://nfac-backend.onrender.com/capsules/${id}`, {
+                method: 'DELETE',
+            });
+            if (response.ok) {
+                onCapsuleDeleted(); // обновляем список после удаления
+            } else {
+                console.error('Failed to delete capsule');
+                alert('Failed to delete capsule');
+            }
+        } catch (error) {
+            console.error('Error deleting capsule:', error);
+            alert('Error deleting capsule');
+        }
+    };
+
     return (
         <div>
-            <h2>All Capsules</h2>
-            <table border="1" cellPadding="5" style={{ margin: "0 auto" }}>
-                <thead>
-                <tr>
-                    <th>Email</th>
-                    <th>Subject</th>
-                    <th>Send At</th>
-                    <th>Status</th>
-                </tr>
-                </thead>
-                <tbody>
-                {capsules.map((capsule) => (
-                    <tr key={capsule.id}>
-                        <td>{capsule.email}</td>
-                        <td>{capsule.subject}</td>
-                        <td>{new Date(capsule.send_at).toLocaleString()}</td>
-                        <td>{capsule.sent ? "Sent" : "Pending"}</td>
-                    </tr>
-                ))}
-                </tbody>
-            </table>
+            {capsules.length === 0 ? (
+                <p>No capsules found.</p>
+            ) : (
+                <ul>
+                    {capsules.map((capsule) => (
+                        <li key={capsule.id}>
+                            <strong>{capsule.subject}</strong> - {capsule.email}
+                            <button onClick={() => handleDelete(capsule.id)} style={{ marginLeft: '10px' }}>
+                                Delete
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+            )}
         </div>
     );
 }
