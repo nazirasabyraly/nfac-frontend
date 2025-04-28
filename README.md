@@ -81,6 +81,9 @@
 - **Supabase**: упрощает работу с облачной базой данных, без необходимости самостоятельного развертывания PostgreSQL.
 - **Mailtrap**: оптимальное решение для безопасного тестирования отправки email-писем на этапе разработки.
 
+## Демонстрация работы:
+https://youtu.be/oMnzjAxlSAA?si=2EFt6_kyda9w_AAN
+
 ## Скриншот:
 ![image](https://github.com/user-attachments/assets/0d6b6ba1-859f-43ac-84db-9dac12982f9f)
 ![image](https://github.com/user-attachments/assets/adc5b13d-bcb3-48c8-af49-532292c22b10)
