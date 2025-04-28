@@ -1,12 +1,41 @@
-# React + Vite
+Это фронтенд часть проекта Time Capsule - сайт, позволяющий создавать капулу времени и отправлять письма в будущее.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live Demo:
+Frontend: https://nfac-frontend.vercel.app/
 
-Currently, two official plugins are available:
+Стек технологий: 
+- Fronted: React + Vite
+- Backend: Go (Golang) + Chi Router
+- Database: PostgreSQL (Supabase)
+- SMTP: Mailtrap
+- Deployment: Vercel (Frontend), Render (Backend)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Возможности:
+- Отправка письма в будущее на выбранную дату
+- Отображение всех созданных капсул в виде таблицы
+- Автоматическая проверка даты и отправка письма: обновления статуса письма (Pending - пока не отправлено, Sent - отправлено)
+- Хранение писем (данные письма) в облачной базе данных
+- Реализация фона работы через планировщик (cron)
 
-## Expanding the ESLint configuration
+Архитектура:
+src/
+ ├── components/
+ │    ├── CreateCapsuleForm.jsx
+ │    └── CapsulesList.jsx
+ ├── App.jsx
+ └── App.css
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Команды и запуск фронтенда:
+    npm install
+    npm run dev
+
+Backend repository: https://github.com/nazirasabyraly/nfac_backend
+
+Скриншот:
+![image](https://github.com/user-attachments/assets/80cdfcf6-d1bd-4f54-8c46-492b3bc88490)
+
+
+
+
+
+
