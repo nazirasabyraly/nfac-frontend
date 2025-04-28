@@ -47,9 +47,9 @@ function App() {
 
     return (
         <div className="App">
-            <h1>Time Capsule 📬</h1>
+            <h1>Time Capsule ⏱️</h1>
             <CreateCapsuleForm onCapsuleCreated={handleNewCapsule} />
-            <CapsulesList capsules={capsules} />
+            <CapsulesList capsules={capsules} onDelete={handleDeleteCapsule} />
         </div>
     );
 }
